@@ -1,0 +1,41 @@
+run = "npm run dev"
+language = "typescript"
+hidden = [".config", "package-lock.json"]
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix"]
+
+[nix]
+channel = "stable-23.11"
+
+[unitTest]
+language = "typescript"
+
+[deployment]
+run = ["npm", "run", "start"]
+deploymentTarget = "cloudrun"
+ignorePaths = [".next", "node_modules"]
+
+[env]
+OFFSTAR_MOBILE_API_KEY = "offstar_mobile_1750274362053_ma6hd6do1if"
+OFFSTAR_DEVICE_ID = "phone-1750269655-5440"
+OFFSTAR_BASE_URL = "https://b42eeb30-b13b-42e0-b20b-46d72cc58abf-00-10b81iaxl6hdh.picard.replit.dev"
+IONET_API_KEY = "your_ionet_api_key_here"
+OBL_API_KEY = "your_obl_api_key_here"
+NEXT_PUBLIC_APP_ENV = "replit"
+NEXT_TELEMETRY_DISABLED = "1"
+
+[packager]
+language = "typescript"
+
+[packager.features]
+packageSearch = true
+guessImports = true
+
+[languages]
+
+[languages.typescript]
+pattern = "**/{*.ts,*.js,*.tsx,*.jsx}"
+
+[languages.typescript.languageServer]
+start = "typescript-language-server --stdio"

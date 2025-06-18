@@ -1,0 +1,44 @@
+{
+  "name": "OFFSTAR AI Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "nodeGypDependencies": true,
+      "version": "20"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-json",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "ms-vscode.hexeditor",
+        "ms-toolsai.jupyter",
+        "ms-python.python"
+      ],
+      "settings": {
+        "typescript.preferences.preferTypeOnlyAutoImports": true,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "emmet.includeLanguages": {
+          "javascript": "javascriptreact",
+          "typescript": "typescriptreact"
+        }
+      }
+    }
+  },
+  "forwardPorts": [3000, 8080, 5000],
+  "postCreateCommand": "npm install && chmod +x scripts/*.sh && bash scripts/codespaces-setup.sh",
+  "remoteUser": "node",
+  "containerEnv": {
+    "OFFSTAR_ENV": "development",
+    "AI_POWERED": "true",
+    "NEXT_TELEMETRY_DISABLED": "1"
+  }
+}
